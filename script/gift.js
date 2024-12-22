@@ -14,6 +14,11 @@ const shakeSounds = [
     'audio/shake_3.mp3'
 ];
 
+// Memastikan semua audio dipreload
+shakeSounds.forEach(audio => {
+    audio.load();
+});
+
 function playRandomShakeSound() {
     const randomIndex = Math.floor(Math.random() * shakeSounds.length);
     const audio = new Audio(shakeSounds[randomIndex]);
