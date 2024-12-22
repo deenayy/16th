@@ -1,3 +1,15 @@
+window.addEventListener('load', () => {
+  const loadingScreen = document.getElementById('loading-screen');
+  
+  // Setelah 2 detik, hilangkan loading screen
+  setTimeout(() => {
+    loadingScreen.style.opacity = '0';  // Perlahan hilangkan loading screen
+    setTimeout(() => {
+      loadingScreen.style.display = 'none';  // Sembunyikan loading screen setelah opacity 0
+    }, 500);  // Tunggu sedikit agar transisi opacity selesai
+  }, 2000);  // Tunggu 2 detik
+});
+
 const giftContainer = document.getElementById('gift-container');
 const gift = document.getElementById('gift');
 const giftLid = document.getElementById('gift-lid');
