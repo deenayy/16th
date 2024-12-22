@@ -53,7 +53,7 @@ giftContainer.addEventListener('click', () => {
         giftContainer.style.animation = '';
     });
 
-    if (clickCount === 1) {
+    if (clickCount === 16) {
 
         setTimeout(() => {
         gift.style.transition = 'transform 2s ease'; // Perpanjang durasi animasi menjadi 3 detik
