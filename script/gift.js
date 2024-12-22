@@ -9,9 +9,9 @@ let clickCount = 0;
 let canClick = true;
 
 const shakeSounds = [
-    'shake_1.mp3',
-    'shake_2.mp3',
-    'shake_3.mp3'
+    'audio/shake_1.mp3',
+    'audio/shake_2.mp3',
+    'audio/shake_3.mp3'
 ];
 
 function playRandomShakeSound() {
