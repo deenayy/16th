@@ -309,7 +309,7 @@ h1 span:nth-child(3) {
   left: 50%;
   transform: translateX(-50%);
   font-size: 40px; /* Ukuran font besar */
-  font-family: 'Comic Sans MS', sans-serif;
+  font-family: 'Chewy', sans-serif;
   color: #ffffff; /* Warna pink cerah */
   text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); /* Bayangan teks */
   margin-bottom: 20px;
