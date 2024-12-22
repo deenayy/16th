@@ -1,0 +1,347 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #ff85b0;
+  font-family: 'Arial', sans-serif;
+  overflow: hidden;
+  transition: background-color 0.3s ease-in-out; /* Smooth transition */
+}
+
+/* Kontainer Utama */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Menjaga konten tetap di tengah secara vertikal */
+  align-items: center; /* Menjaga konten tetap di tengah secara horizontal */
+  text-align: center;
+  width: 100%; /* Membuat lebar container 100% agar bisa mengisi layar */
+  box-sizing: border-box;
+  padding: 20px; /* Memberikan padding pada semua sisi untuk responsivitas */
+  position: relative; /* Agar elemen dapat diposisikan relatif terhadap kontainer */
+}
+
+#click-counter {
+  position: absolute; /* Memposisikan bagian ini di atas */
+  top: 20px; /* Memberikan jarak dari bagian atas */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  border: 3px solid #ff6f91;
+  border-radius: 15px;
+  padding: 10px 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#click-counter span {
+  font-size: 18px;
+  color: #ff6f91;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.counter-value {
+  font-size: 36px;
+  font-weight: bold;
+  color: #ff3e6c;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Kontainer Kado */
+#gift-container {
+  position: relative;
+  width: 200px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px; /* Memberikan jarak antara counter dan kado */
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3)); /* Menambahkan bayangan sesuai bentuk kado */
+}
+
+/* Menjaga gambar kado dan tutup kado tetap di tengah */
+#gift, #gift-lid {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.5s ease-out; /* Untuk animasi berpisah */
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3)); /* Menambahkan bayangan sesuai bentuk kado */
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+#card {
+  margin-top: -60px;
+  font-size: 18px;
+  color: #333;
+  text-align: justify;
+  line-height: 1.6; /* Memberikan jarak antar baris agar lebih mudah dibaca */
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 250px; /* Ukuran potret yang lebih sempit */
+  height: 280px; /* Ketinggian tetap terbatas */
+  transform: scale(0); /* Awal kartu kecil */
+  transition: transform 2s ease-out; /* Efek pembesaran dengan durasi 2 detik */
+  max-height: 400px; /* Batasi tinggi maksimal agar tidak terlalu tinggi */
+  overflow-y: auto; /* Agar konten yang lebih banyak bisa digulir */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+}
+
+.card-image {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Memastikan gambar memiliki rasio 1:1 */
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: 20px; /* Jarak antara gambar dan teks */
+}
+
+#card p {
+  font-family: patrick hand;
+  color: #000;
+  margin: 0;
+  padding-bottom: 20px; /* Memberikan jarak bawah pada paragraf */
+}
+
+#card .link {
+  display: block; /* Mengubah menjadi block-level element */
+  text-align: center;
+  margin-top: 20px; /* Jarak di atas link */
+  font-size: 16px;
+  color: #ff6f91;
+  text-decoration: none; /* Menghapus garis bawah */
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+#card .link:hover {
+  color: #ff3e6c; /* Mengubah warna saat hover */
+}
+
+/* Animasi fade in-out */
+@keyframes fade {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Animasi Kartu */
+@keyframes appear-card {
+  from { transform: scale(0); }
+  to { transform: scale(1); }
+}
+
+/* Animasi Getar dari Tengah dengan putaran sedikit */
+@keyframes shake {
+  0%, 100% { 
+    transform: translateX(0) rotate(0deg); 
+  }
+  25% { 
+    transform: translateX(-10px) rotate(-5deg); 
+  }
+  50% { 
+    transform: translateX(10px) rotate(5deg); 
+  }
+  75% { 
+    transform: translateX(-10px) rotate(-5deg); 
+  }
+}
+
+/* Styling for the hidden cake section */
+.cake-section {
+  display: none; /* Initially hidden */
+  text-align: center;
+  position: fixed; /* Stay on top */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the cake section */
+  height: 100%;
+  width: 100%;
+  background-color: #ff85b0; /* Semi-transparent pink background */
+  z-index: 1000; /* Ensure it's above other elements */
+  padding: 20px;
+  overflow: auto; /* Enable scrolling if content is long */
+}
+
+.cake-group {
+  display: none; /* Initially hidden */
+  text-align: center;
+  position: fixed; /* Stay on top */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the cake section */
+  height: 100%;
+  width: 100%;
+  z-index: 1005; /* Ensure it's above other elements */
+  padding: 20px;
+  overflow: auto; /* Enable scrolling if content is long */
+}
+
+.cake-section.visible {
+  display: block; /* Show when class "visible" is added */
+}
+
+.cake-group.visible {
+  display: block; /* Show when class "visible" is added */
+}
+
+.cake-img {
+  position: absolute; /* Stack all images on top of each other */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the image both vertically and horizontally */
+  width: 80%; /* Set the width to 80% of the container */
+  max-width: 300px; /* Ensure the image doesn't get larger than 300px */
+  height: auto; /* Maintain the aspect ratio */
+  z-index: 5; /* Behind the other images */
+  opacity: 0; /* Initially hidden */
+}
+
+.cake4 {
+  position: absolute; /* Stack all images on top of each other */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the image both vertically and horizontally */
+  width: 80%; /* Set the width to 80% of the container */
+  max-width: 300px; /* Ensure the image doesn't get larger than 300px */
+  height: auto; /* Maintain the aspect ratio */
+  z-index: 1; /* Behind the other images */
+  opacity: 1; /* Make it visible initially */
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3)); /* Menambahkan bayangan sesuai bentuk kado */
+}
+
+#yourcake h2 {
+  white-space: nowrap; /* Jangan pindah baris */
+  position: absolute;
+  top: calc(50% - 280px); /* Tempatkan 150px di bawah cake */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 40px; /* Ukuran font besar */
+  font-family: 'Poppins', cursive; /* Font tulisan tangan yang ceria */
+  color: #ffffff; /* Warna pink cerah */
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); /* Bayangan teks */
+  margin-bottom: 20px;
+}
+
+#yourcake p {
+  display: block;
+  white-space: nowrap; /* Jangan pindah baris */
+  position: absolute;
+  top: calc(50% - 200px); /* Tempatkan 150px di bawah cake */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 24px; /* Ukuran font sedang */
+  font-family: 'Poppins', sans-serif; /* Font sans-serif yang modern dan mudah dibaca */
+  color: #000; /* Warna teks hitam agar jelas terlihat */
+  font-weight: bold;
+  margin-bottom: 30px;
+  opacity: 0,5;
+  animation: blink 1s infinite; /* Durasi 1 detik, berulang terus */
+}
+
+/* Animasi teks muncul perlahan */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1; /* Mulai dengan tampilan penuh */
+  }
+  50% {
+    opacity: 0; /* Setengah waktu hilang */
+  }
+  100% {
+    opacity: 1; /* Kembali ke tampilan penuh */
+  }
+}
+
+.hidden-link {
+    display: none;
+    position: absolute;
+    top: calc(50% + 200px); /* Tempatkan 150px di bawah cake */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #ff6f91;
+    z-index: -10; /* Di bawah lapisan elemen lainnya */
+    padding: 10px 20px; /* Tambahkan padding untuk ruang di dalamnya */
+    background-color: #f0f0f0; /* Warna latar belakang tabel */
+    border: 2px solid #ccc; /* Border yang lebih lembut */
+    border-radius: 10px; /* Sudut melengkung untuk menghindari sudut lancip */
+    text-align: center; /* Posisikan teks di tengah */
+}
+  
+
+.hidden-link:hover {
+  color: #ff4974;
+}
+
+/* Responsiveness for mobile screens */
+@media (max-width: 768px) {
+  #yourcake h2 {
+    font-size: 30px; /* Ukuran font lebih kecil pada layar kecil */
+    margin-top: 50px; /* Mengatur ruang atas lebih kecil untuk mendekatkan ke bawah */
+  }
+
+  #yourcake p {
+    font-size: 18px; /* Ukuran font lebih kecil untuk paragraf */
+    margin-top: 20px; /* Menambahkan sedikit ruang atas untuk paragraf */
+  }
+}
+
+/* Responsif untuk layar sangat kecil */
+@media (max-width: 480px) {
+  #yourcake h2 {
+    font-size: 28px; /* Ukuran font lebih kecil lagi pada layar sangat kecil */
+    margin-top: 40px; /* Mengatur ruang atas lebih kecil untuk mendekatkan ke bawah */
+  }
+
+  #yourcake p {
+    font-size: 16px; /* Ukuran font lebih kecil untuk paragraf pada layar sangat kecil */
+    margin-top: 10px; /* Mengurangi sedikit ruang atas untuk paragraf */
+  }
+}
+
+
+/* Responsif untuk layar kecil */
+@media (max-width: 600px) {
+  .hidden-link {
+    font-size: 16px; /* Mengurangi ukuran font pada perangkat kecil */
+    padding: 8px 15px; /* Menyesuaikan padding untuk tampilan kecil */
+    max-width: 95%; /* Lebar maksimal lebih besar pada perangkat kecil */
+  }
+}
