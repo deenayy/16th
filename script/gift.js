@@ -101,11 +101,11 @@ giftContainer.addEventListener('click', () => {
 const cakeLink = document.getElementById('cake-link');
 const cakeSection = document.getElementById('yourcake'); // Target section
 const cakeGroup = document.getElementById('yourcake2');
-const hbdSound = new Audio('hbd.mp3');
+const hbdSound = new Audio('audio/hbd.mp3');
 const cakeImages = document.querySelectorAll('.cake-group');
 const cake4 = document.querySelector('.cake4');
 const finalLink = document.getElementById('final-link');
-const horeSound = new Audio('hore.mp3'); // Ganti dengan path file hore.mp3 yang sesuai
+const horeSound = new Audio('audio/hore.mp3'); // Ganti dengan path file hore.mp3 yang sesuai
 const pElement = document.querySelector('#yourcake p');
 hbdSound.loop = true; // Set the song to loop initially
 
