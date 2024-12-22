@@ -182,7 +182,7 @@ h1 span:nth-child(3) {
 }
 
 #card p {
-  font-family: patrick hand;
+  font-family: 'Times New Roman', Times, serif;
   color: #000;
   margin: 0;
   padding-bottom: 20px; /* Memberikan jarak bawah pada paragraf */
@@ -190,17 +190,21 @@ h1 span:nth-child(3) {
 
 #card .link {
   display: block; /* Mengubah menjadi block-level element */
+  font-family: 'Times New Roman', Times, serif;
   text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  background: #ff6f91;
   margin-top: 20px; /* Jarak di atas link */
   font-size: 16px;
-  color: #ff6f91;
+  color: #ffffff;
   text-decoration: none; /* Menghapus garis bawah */
   font-weight: bold;
   transition: color 0.3s ease;
 }
 
 #card .link:hover {
-  color: #ff3e6c; /* Mengubah warna saat hover */
+  color: #757575; /* Mengubah warna saat hover */
 }
 
 /* Animasi fade in-out */
@@ -305,7 +309,7 @@ h1 span:nth-child(3) {
   left: 50%;
   transform: translateX(-50%);
   font-size: 40px; /* Ukuran font besar */
-  font-family: 'Poppins', cursive; /* Font tulisan tangan yang ceria */
+  font-family: 'Comic Sans MS', sans-serif;
   color: #ffffff; /* Warna pink cerah */
   text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); /* Bayangan teks */
   margin-bottom: 20px;
