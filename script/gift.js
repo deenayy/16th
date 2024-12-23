@@ -7,7 +7,7 @@ window.addEventListener('load', () => {
     setTimeout(() => {
       loadingScreen.style.display = 'none';  // Sembunyikan loading screen setelah opacity 0
     }, 500);  // Tunggu sedikit agar transisi opacity selesai
-  }, 2000);  // Tunggu 2 detik
+  }, 4000);  // Tunggu 2 detik
 });
 
 const giftContainer = document.getElementById('gift-container');
