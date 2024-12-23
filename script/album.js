@@ -62,7 +62,7 @@ const closeBtn = document.getElementById('closeBtn');
 const images = document.querySelectorAll('.thumbnail');
 
 // Daftar gambar
-const imageArray = ["image1.jpg", "image2.jpg", "image3.jpg", "image4.jpg", "image5.jpg"];
+const imageArray = ["images/image1.jpg", "images/image2.jpg", "images/image3.jpg", "images/image4.jpg", "images/image5.jpg"];
 let currentImageIndex = 0; // Indeks gambar yang sedang ditampilkan
 
 // Tampilkan gambar yang diperbesar
