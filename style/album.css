@@ -97,12 +97,11 @@ body {
     font-family: 'Pacifico', cursive; /* Menambahkan font khusus */
     font-size: 2.5rem; /* Ukuran font untuk h1 */
     color: #ff66b2; /* Warna teks */
-    text-shadow: 2px 2px 5px rgba(255, 105, 180, 0.7); /* Efek bayangan */
     text-align: center; /* Rata tengah */
 }
 
 .music-control p {
-    font-family: 'Pacifio', cursive; /* Menggunakan font Pacifico */
+    font-family: 'Fredoka', sans-serif;
     font-size: 1.2rem; /* Ukuran font */
     line-height: 1.6; /* Jarak antar baris */
     color: #333; /* Warna teks */
@@ -205,6 +204,8 @@ body {
 
 /* Tombol navigasi */
 .nav-btn {
+    font-family: Roboto, sans-serif;
+    text-align: center; /* Rata tengah */
     font-size: 1.2rem;
     color: white;
     background-color: #ff66b2;
@@ -255,16 +256,20 @@ body {
 }
 
 .poetry h2 {
+    font-family: 'Times New Roman', Times, serif;
     margin-bottom: 20px;
 }
 
 .poetry p {
-    text-align: center; /* Rata tengah tiap baris */
+    font-family: 'Times New Roman', Times, serif;
+    text-align: justify; /* Rata tengah tiap baris */
     line-height: 1.8; /* Tambahkan spasi antar baris */
     font-size: 1.1rem; /* Ukuran font sedikit lebih besar */
     overflow-y: auto; /* Agar teks dapat digulir ke bawah jika melebihi tinggi */
     overflow-x: auto;
     max-height: 100%; /* Pastikan elemen p bisa mengisi ruang yang tersedia */
+    max-width: 90%;
+    margin: 0 auto;
 }
 
 /* Responsiveness - Medium Screens */
