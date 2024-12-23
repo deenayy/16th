@@ -268,7 +268,7 @@ body {
     overflow-y: auto; /* Agar teks dapat digulir ke bawah jika melebihi tinggi */
     overflow-x: auto;
     max-height: 100%; /* Pastikan elemen p bisa mengisi ruang yang tersedia */
-    max-width: 90%;
+    max-width: 96%;
     margin: 0 auto;
 }
 
