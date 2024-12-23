@@ -1,0 +1,398 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ff85b0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#loading-screen h1 {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#loading-screen h1 span {
+  color: #262626;
+  background: #fff;
+  padding: 10px 20px;
+  font-family: Arial, sans-serif;
+  display: table-cell;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3), 0 5px 0 #ccc;
+  animation: animate 0.5s infinite;
+}
+
+@keyframes animate {
+  0% {
+    transform: translateY(0px);
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3), 0 5px 0 #ccc, 0 15px 5px rgba(0, 0, 0, 0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3), 0 5px 0 #ccc, 0 15px 5px rgba(0, 0, 0, 0.6);
+  }
+
+  100% {
+    transform: translateY(0px);
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3), 0 5px 0 #ccc, 0 15px 5px rgba(0, 0, 0, 0);
+  }
+}
+
+#loading-screen h1 span:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+#loading-screen h1 span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+#loading-screen h1 span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+body {
+    font-family: 'Dancing Script', cursive;
+    background: linear-gradient(to bottom, #ffb3d9, #ff80bf);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    max-width: 90%;
+    min-width: 200px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255);
+    gap: 15px;
+    border-radius: 10px;
+    padding: 20px;
+    transform: translateY(10px); /* Untuk posisi lebih sentral */
+    margin-top: 20px; /* Tambahkan jarak atas agar lebih jauh dari elemen sebelumnya */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Tambahkan sedikit bayangan */
+    font-family: 'Pacifico', cursive; /* Menambahkan font khusus */
+    font-size: 2.5rem; /* Ukuran font untuk h1 */
+    color: #ffffff; /* Warna teks */
+}
+
+.music-control h1 {
+    font-family: 'Pacifico', cursive; /* Menambahkan font khusus */
+    font-size: 2.5rem; /* Ukuran font untuk h1 */
+    color: #ff66b2; /* Warna teks */
+    text-shadow: 2px 2px 5px rgba(255, 105, 180, 0.7); /* Efek bayangan */
+    text-align: center; /* Rata tengah */
+}
+
+.music-control p {
+    font-family: 'Pacifio', cursive; /* Menggunakan font Pacifico */
+    font-size: 1.2rem; /* Ukuran font */
+    line-height: 1.6; /* Jarak antar baris */
+    color: #333; /* Warna teks */
+    margin: 0 auto;
+    width: 100%;
+    max-width: 90%; /* Membatasi lebar agar tetap rapi */
+    text-align: justify;
+    margin-bottom: 30px;
+}
+
+.music-control {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.song-label {
+    margin-bottom: 5px;
+    display: inline-block;
+    font-size: 1.1rem;
+}
+
+#songSelector {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: 1px solid #ff66b2;
+    border-radius: 5px;
+    min-width: 200px;
+    margin-bottom: 20px;
+}
+
+#toggleMusicBtn {
+    padding: 10px 20px;
+    background-color: #ff66b2;
+    border: 1px solid #ffffff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    white-space: nowrap;
+    margin-bottom: 20px;
+}
+
+/* Gallery */
+.gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.photo {
+    width: 90%;
+    max-width: 400px;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    background: #fff;
+    position: relative;
+}
+
+.thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 5px solid white; /* Tambahkan border putih */
+    border-radius: 10px; /* Pertahankan sudut yang membulat */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Tambahkan bayangan untuk menonjolkan gambar */
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Pastikan modal berada di atas elemen lain */
+}
+
+/* Modal Nav (Kontainer tombol navigasi) */
+.modal-nav {
+    display: flex;
+    justify-content: center; /* Memusatkan tombol */
+    align-items: center; /* Menyelaraskan tombol secara vertikal */
+    gap: 20px; /* Jarak antar tombol */
+    margin-top: 10px; /* Jarak antara modal dan tombol */
+}
+
+/* Tombol navigasi */
+.nav-btn {
+    font-size: 1.2rem;
+    color: white;
+    background-color: #ff66b2;
+    border: none;
+    padding: 10px 30px; /* Ukuran tombol tetap */
+    border-radius: 10px; /* Pertahankan bentuk persegi panjang dengan sudut membulat */
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Efek hover pada tombol */
+.nav-btn:hover {
+    background-color: #ff80bf;
+    transform: scale(1.05); /* Efek sedikit pembesaran saat hover */
+}
+
+/* Efek active pada tombol */
+.nav-btn:active {
+    transform: scale(1); /* Menghilangkan efek pembesaran saat tombol ditekan */
+}
+
+/* Modal Content */
+.modal-content {
+    width: 80%; /* Lebar modal lebih besar agar lebih konsisten dengan kontainer lain */
+    max-width: 900px; /* Maksimal lebar 900px */
+    height: auto; /* Menjaga proporsi tinggi gambar */
+    max-height: 80vh; /* Membatasi tinggi gambar agar tidak terlalu besar */
+    object-fit: contain; /* Pastikan gambar tetap proporsional */
+    border-radius: 10px; /* Agar gambar sedikit melengkung */
+    margin-bottom: 40px; /* Memberi jarak agar tombol navigasi tidak terlalu rapat */
+}
+
+.poetry {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    max-width: 100%;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    transform: translateY(10px); /* Untuk posisi lebih sentral */
+    margin-top: 10px; /* Tambahkan jarak atas agar lebih jauh dari tombol navigasi */
+    margin-bottom: 10px; /* Tambahkan jarak atas agar lebih jauh dari tombol navigasi */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Tambahkan sedikit bayangan */
+    max-height: 400px; /* Batasi tinggi agar tidak terlalu besar */  
+}
+
+.poetry h2 {
+    margin-bottom: 20px;
+}
+
+.poetry p {
+    text-align: center; /* Rata tengah tiap baris */
+    line-height: 1.8; /* Tambahkan spasi antar baris */
+    font-size: 1.1rem; /* Ukuran font sedikit lebih besar */
+    overflow-y: auto; /* Agar teks dapat digulir ke bawah jika melebihi tinggi */
+    overflow-x: auto;
+    max-height: 100%; /* Pastikan elemen p bisa mengisi ruang yang tersedia */
+}
+
+/* Responsiveness - Medium Screens */
+@media (max-width: 768px) {
+
+    .description {
+        padding: 15px; /* Kurangi padding agar tidak terlalu rapat di layar kecil */
+        font-size: 2rem; /* Mengurangi ukuran font untuk ponsel */
+    }
+
+    .description h1 {
+        font-size: 2rem; /* Mengurangi ukuran font untuk h1 di ponsel */
+    }
+
+    .description p {
+        font-size: 1rem; /* Mengurangi ukuran font untuk p di ponsel */
+        max-width: 95%; /* Lebar lebih besar untuk ponsel */
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .description p, .poetry p {
+        font-size: 1rem;
+    }
+
+    .modal-content {
+        width: 90%; /* Modal lebih besar pada layar kecil */
+        max-width: 600px; /* Membatasi lebar maksimal pada layar kecil */
+        max-height: 70vh; /* Menyesuaikan tinggi modal di perangkat lebih kecil */
+    }
+
+    #songSelector {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #toggleMusicBtn {
+        width: 100%;
+    }
+
+    .nav-btn {
+        font-size: 1.2rem; /* Pastikan ukuran font sama dengan versi mobile */
+        padding: 10px 30px; /* Ukuran padding tetap sama */
+        border-radius: 10px; /* Bentuk tetap sama seperti di layar mobile */
+    }
+}
+
+    .nav-btn:hover {
+        background-color: #ff80bf;
+        transform: scale(1.1);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-btn:active {
+        transform: scale(1);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+/* Responsiveness - Small Screens */
+@media (max-width: 480px) {
+
+    .description {
+        font-size: 1.8rem; /* Ukuran font lebih kecil untuk ponsel kecil */
+    }
+
+    .description h1 {
+        font-size: 1.8rem; /* Ukuran font untuk h1 di ponsel kecil */
+    }
+
+    .description p {
+        font-size: 0.9rem; /* Ukuran font lebih kecil untuk ponsel kecil */
+        max-width: 100%; /* Lebar maksimal untuk ponsel kecil */
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .description p, .poetry p {
+        font-size: 0.9rem;
+    }
+
+    .modal-content {
+        width: 95%; /* Modal mengambil hampir seluruh lebar layar di perangkat kecil */
+        max-width: 400px; /* Menyesuaikan ukuran pada ponsel */
+        max-height: 60vh; /* Menyesuaikan tinggi pada ponsel */
+    }
+
+    .nav-btn {
+        font-size: 1.2rem; /* Konsistensi ukuran font */
+        padding: 10px 30px; /* Ukuran padding tetap */
+        border-radius: 10px; /* Bentuk tetap sama */
+    }
+
+}
+
+#openPageBtn {
+    padding: 10px 20px;
+    background-color: #ff66b2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    white-space: nowrap;
+    opacity: 0.6; /* Tombol awal terlihat tidak aktif */
+    cursor: not-allowed; /* Cursor berubah untuk tombol nonaktif */
+}
+
+#openPageBtn:enabled {
+    opacity: 1; /* Tombol aktif penuh */
+    cursor: pointer; /* Cursor kembali normal */
+}
+
+#mainContent {
+    display: none; /* Konten tersembunyi sebelum tombol ditekan */   
+    display: flex;
+    margin-top: 20px; /* Jarak setelah ditampilkan */
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    transform: translateY(10px); /* Untuk posisi lebih sentral */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Tambahkan sedikit bayangan */
+} 
+
